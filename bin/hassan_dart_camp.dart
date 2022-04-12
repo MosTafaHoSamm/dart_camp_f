@@ -723,23 +723,77 @@
 //    }
 // }
 
-
 // io and file system
+// import 'dart:io';
+//
+// main()async{
+//   File file= File('mostafa.txt');
+//   if(await file.exists())
+//     {
+//         file.delete();
+//       print( "file is exist") ;
+//     }
+//   else {
+//
+//     file.create().then((value) =>  print('File Not Exist') );
+//     file.writeAsStringSync("Mostafa Hosam Eldin Mohamed Ahmed ");
+//     file.readAsString().then((value) => print(value));
+//     file.copy('mostafaAsmaa').then((value) => print(value));
+//   }
+//
+// }
+
+// main(){
+// Person mostafa=Person( );
+// print(mostafa.age);
+// print(mostafa.color);
+//  changeColor(mostafa.color);
+//
+// }
+//
+// class Person{
+//   late int age;
+//   String ?  color=null;
+//
+//  Person(){age=3;}   }
+// changeColor(color){
+//   print(color);
+// }
+
 import 'dart:io';
 
-main()async{
-  File file= File('mostafa.txt');
-  if(await file.exists())
-    {
-        file.delete();
-      print( "file is exist") ;
-    }
-  else {
+class MathQuestion {
+  String carName = "mercedes";
+  String? do_cat;
+  String question;
+  double answer;
 
-    file.create().then((value) =>  print('File Not Exist') );
-    file.writeAsStringSync("Mostafa Hosam Eldin Mohamed Ahmed ");
-    file.readAsString().then((value) => print(value));
-    file.copy('mostafaAsmaa').then((value) => print(value));
+  MathQuestion({required this.question, required this.answer});
+}
+
+main() {
+  List<MathQuestion> questions = [
+    MathQuestion(question: "100*8", answer: 800),
+    MathQuestion(question: "100-50", answer: 50),
+    MathQuestion(question: "100/10", answer: 10),
+    MathQuestion(question: "100+100", answer: 200),
+  ];
+  for (var item in questions) {
+    var answer = getAnswer(item.question);
+    if (answer == item.answer)
+      print("Correct");
+    else
+      print("False");
+    print("Your Answer : $answer");
   }
+  {}
+}
 
+double getAnswer(
+  msg,
+) {
+  print("Question : $msg ?");
+  var input = stdin.readLineSync();
+  double val = double.tryParse(input!) ?? 0.0;
+  return val;
 }

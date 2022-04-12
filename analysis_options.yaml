@@ -15,13 +15,21 @@ include: package:lints/recommended.yaml
 
 # Uncomment the following section to specify additional rules.
 
-# linter:
-#   rules:
-#     - camel_case_types
+linter:
+  rules:
+    - always_declare_return_types: false
+    - prefer_single_quotes: false
+    - curly_braces_in_flow_control_structures
+    - camel_case_types
 
-# analyzer:
-#   exclude:
-#     - path/to/excluded/files/**
+
+analyzer:
+   errors:
+     prefer_single_quotes: error
+     always_declare_return_types : error
+     curly_braces_in_flow_control_structures:
+     camel_case_types: error
+
 
 # For more information about the core and recommended set of lints, see
 # https://dart.dev/go/core-lints
